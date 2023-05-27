@@ -50,6 +50,7 @@ platforms/
 
 # reinstate wmake/rules that might look like build directories
 !wmake/rules/*/
+wmake/rules/linux64Nvcc[0-9]*
 
 # doxygen generated documentation
 doc/Doxygen/html

@@ -101,7 +101,7 @@ Foam::multiSolidBodyMotionFvMesh::multiSolidBodyMotionFvMesh(const IOobject& io)
     gpuPointIDs_.setSize(pointIDs_.size());
     label zoneI = 0;
 
-    forAllConstIter(dictionary, dynamicMeshCoeffs_, iter)
+    for (Foam::UILList< DLListBase, entry> ::const_iterator iter = (dynamicMeshCoeffs_).begin(); (iter != ((dynamicMeshCoeffs_).end())); (++iter))
     {
         if (iter().isDict())
         {
