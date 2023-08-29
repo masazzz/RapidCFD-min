@@ -1,5 +1,5 @@
 # use the system installed openmpi - mpicc must be installed
 
 PFLAGS     = -DOMPI_SKIP_MPICXX
-PINC       = $(shell mpicc --showme:compile | sed -e 's/.*\(-I[^ ]*\).*/\1/')
-PLIBS      = $(shell mpicc --showme:link | sed -e 's/.*\(-L[^ ]*\).*/\1/') -lmpi
+PINC       = $(shell mpicc --showme:compile | sed 's/-pthread/-Xcompiler -pthread/g')
+PLIBS      = $(shell mpicc --showme:link | sed 's/-pthread/-Xcompiler -pthread/g')
